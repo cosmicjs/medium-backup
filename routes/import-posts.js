@@ -31,7 +31,7 @@ module.exports = function(app, config, async) {
             if (post['link'])
               medium_link = post['link'][0]
             // Test if object available
-            Cosmic.getObject(config, { slug: slugify(title) }, function(err, response) {
+            Cosmic.getObject(config, { slug: slug(title) }, function(err, response) {
               if (response && response.object) {
                 // already added
                 return callback()

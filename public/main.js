@@ -23,9 +23,11 @@ $(function() {
   function initDeleteRow() {
     $('.delete-row').on('click', function() {
       var slug = $(this).data('slug');
-      if (!slug)
-        return;
       $(this).closest('.feed-row').fadeOut(function() {
+        if (!slug) {
+          $(this).remove();
+          return;
+        }
         $.ajax({
           url: '/delete-cron',
           method: 'post',
@@ -82,11 +84,15 @@ $(function() {
       var feed_url = $(this).find('.feed-url').val();
       var bucket_slug = $(this).find('.bucket-slug').val();
       var title = $(this).find('.title').val();
-      crons.push({
-        feed_url: feed_url,
-        bucket_slug: bucket_slug,
-        title: title
-      });
+      var id = $(this).data('id');
+      // Test if existing
+      if (!id) {
+        crons.push({
+          feed_url: feed_url,
+          bucket_slug: bucket_slug,
+          title: title
+        });
+      }
     });
     $.ajax({
       url: '/add-crons',
