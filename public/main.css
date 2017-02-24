@@ -1,7 +1,8 @@
 .tab-content {
   padding: 20px;
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  border-radius: 0 4px 4px;
 }
 .new-row {
   padding: 15px;
