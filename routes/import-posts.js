@@ -6,6 +6,8 @@ module.exports = function(app, config, async) {
     var slug = require('slug')
     var parseString = require('xml2js').parseString
     var feed_url = req.body.feed_url
+    var bucket_slug = req.body.bucket_slug
+    config.bucket.slug = bucket_slug
     request(feed_url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         parseString(body, function (err, result) {
