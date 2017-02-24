@@ -1,0 +1,18 @@
+.tab-content {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+.new-row {
+  padding: 15px;
+  border: 2px dashed #ccc;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #f5f5f5;
+}
+.new-row .btn {
+  background: #fff; 
+}
+.table>tbody>tr>td {
+  border: none;
+}
