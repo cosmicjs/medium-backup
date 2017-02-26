@@ -25,5 +25,5 @@ require('./routes/add-crons.js')(app, config, async)
 require('./routes/delete-cron.js')(app, config)
 // Crons
 var getCrons = require('./routes/crons.js')
-setInterval(() => getCrons(app, config, async), 5000)
+setInterval(() => getCrons(app, config, async), 600000)
 app.listen(app.get('port'))
