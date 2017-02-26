@@ -7,7 +7,13 @@ module.exports = function(app, config, async) {
     var parseString = require('xml2js').parseString
     var feed_url = req.body.feed_url
     var bucket_slug = req.body.bucket_slug
-    config.bucket.slug = bucket_slug
+    var cosmic_config = {
+      bucket: {
+        slug: bucket_slug,
+        read_key: process.env.COSMIC_READ_KEY || '',
+        write_key: process.env.COSMIC_WRITE_KEY || ''
+      }
+    }
     request(feed_url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         parseString(body, function (err, result) {
@@ -33,7 +39,7 @@ module.exports = function(app, config, async) {
             if (post['link'])
               medium_link = post['link'][0]
             // Test if object available
-            Cosmic.getObject(config, { slug: slug(title) }, function(err, response) {
+            Cosmic.getObject(cosmic_config, { slug: slug(title) }, function(err, response) {
               if (response && response.object) {
                 // already added
                 return callback()
@@ -78,7 +84,7 @@ module.exports = function(app, config, async) {
                     value: tags
                   })
                 }
-                Cosmic.addObject(config, params, function(err, response) {
+                Cosmic.addObject(cosmic_config, params, function(err, response) {
                   if (response)
                     posts_imported.push(post)
                   callback()
