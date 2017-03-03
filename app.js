@@ -9,7 +9,7 @@ app.engine('html', hogan)
 app.set('port', (process.env.PORT || 3000))
 app.use('/', express.static(__dirname + '/public/'))
 // Config
-var bucket_slug = process.env.COSMIC_BUCKET || 'medium-test'
+var bucket_slug = process.env.COSMIC_BUCKET || 'medium-backup'
 var config = {
   cron_interval: process.env.CRON_INTERVAL || 3600000,
   bucket: {
