@@ -11,6 +11,7 @@ app.use('/', express.static(__dirname + '/public/'))
 // Config
 var bucket_slug = process.env.COSMIC_BUCKET || 'medium-test'
 var config = {
+  cron_interval: process.env.CRON_INTERVAL || 3600000,
   bucket: {
     slug: bucket_slug,
     read_key: process.env.COSMIC_READ_KEY || '',
@@ -25,5 +26,5 @@ require('./routes/add-crons.js')(app, config, async)
 require('./routes/delete-cron.js')(app, config)
 // Crons
 var getCrons = require('./routes/crons.js')
-setInterval(() => getCrons(app, config, async), 3600000) // every 60 minutes
+setInterval(() => getCrons(app, config, async), config.cron_interval) // every 60 minutes
 app.listen(app.get('port'))
