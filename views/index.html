@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>
-    Medium Import App
+    Medium Backup App
   </title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -14,13 +14,15 @@
 <body>
   <div class="container" style="margin-top: 20px; margin-bottom: 60px;">
     <div>
-      <h1>Import Medium Posts</h1>
-      <p>This app imports your Medium posts to Cosmic JS.  Simply add the feed URL of the Medium Blog you would like to import and it will import the 10 latest posts (Medium only allows access to the 10 latest posts in the feed).  This can be a personal account, a publication or a custom domain. <a href="https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles" target="_blank">Read this help article from Medium</a> to find out which URL structure to use.  It can be <code>https://medium.com/feed/@yourusername</code> or if you have a custom domain <code>https://customdomain.com/feed</code>.
-      </p>
-      <p>If you find that you are only getting partial articles, you may need to go into <a href="https://medium.com/me/settings" target="_blank">your Medium account settings</a> and make sure RSS Feed is set to "Full".
-      </p>
-      <p>If you choose the cron job option, the cron job will look for new posts every hour.</p>
-      <div>
+      <h1>Medium Backup App</h1>
+      <section style="margin: 20px 0 30px;">
+        <p>This app imports your Medium posts to Cosmic JS.  Simply add the feed URL of the Medium Blog you would like to import and it will import the 10 latest posts (Medium only allows access to the 10 latest posts in the feed).  This can be a personal account, a publication or a custom domain. <a href="https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles" target="_blank">Read this help article from Medium</a> to find out which URL structure to use.  It can be <code>https://medium.com/feed/@yourusername</code> or if you have a custom domain <code>https://customdomain.com/feed</code>.
+        </p>
+        <p>If you find that you are only getting partial articles, you may need to go into <a href="https://medium.com/me/settings" target="_blank">your Medium account settings</a> and make sure RSS Feed is set to "Full".
+        </p>
+        <p>If you choose the cron job option, the cron job will look for new posts every hour.</p>
+      </section>
+      <section>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#manual" aria-controls="manual" role="tab" data-toggle="tab"><i class="fa fa-wrench"></i>&nbsp;&nbsp;Manual Import</a></li>
@@ -94,7 +96,7 @@
             <div class="add-crons-message" style="margin-top: 10px"></div>
           </div><!-- .tab-pane -->
         </div>
-      </div>
+      </section>
       <div style="margin-top: 20px">
         <a href="https://cosmicjs.com" target="_blank" style="text-decoration: none;"><img style="float:left;margin-right:15px;position:relative;" src="https://cosmicjs.com/images/logo.svg" width="28" height="28"><span class="powered-by" style="position:relative; top: 4px; color: #333;">Proudly powered by Cosmic JS</span></a>
       </div>
