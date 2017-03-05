@@ -14,7 +14,15 @@
 <body>
   <div class="container" style="margin-top: 20px; margin-bottom: 60px;">
     <div>
-      <h1>Medium Backup App</h1>
+      <div class="row">
+        <h1 class="pull-left col-sm-6">Medium Backup App</h1>
+        <div class="text-center mb-40 pull-right col-sm-6 text-right">
+          <a class="btn btn-default btn-raised pull-right" href="https://github.com/cosmicjs/medium-backup" target="_blank">
+            <i class="fa fa-github" style="font-size: 20px"></i>
+            &nbsp;&nbsp;View Code on GitHub
+          </a>
+        </div>
+      </div>
       <section style="margin: 20px 0 30px;">
         <p>This app imports your Medium posts to Cosmic JS.  Simply add the feed URL of the Medium Blog you would like to import and it will import the 10 latest posts (Medium only allows access to the 10 latest posts in the feed).  This can be a personal account, a publication or a custom domain. <a href="https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles" target="_blank">Read this help article from Medium</a> to find out which URL structure to use.  It can be <code>https://medium.com/feed/@yourusername</code> or if you have a custom domain <code>https://customdomain.com/feed</code>.
         </p>
