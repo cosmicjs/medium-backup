@@ -68,7 +68,7 @@ $(function() {
           message = 'Feed URL issue';
         }
         _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
-        _this.find('.submit-feed-url').text('Submit');
+        _this.find('.submit-feed-url').text('Import Posts');
         $('.message').html('<div class="alert alert-danger">There was an error with this request. Error type: ' + message + '</div>');
       }
     });
@@ -80,10 +80,19 @@ $(function() {
     $(this).find('.feed-url, .submit-feed-url').addClass('disabled');
     $(this).find('.submit-feed-url').text('Submitting...');
     var crons = [];
+    var errors = false;
     $('.feed-row').each(function() {
       var feed_url = $(this).find('.feed-url').val();
       var bucket_slug = $(this).find('.bucket-slug').val();
       var title = $(this).find('.title').val();
+      if (!feed_url.trim() || !title.trim() || !title.trim())
+        errors = true;
+      if (!feed_url.trim())
+        $('.add-crons-message').html('<div class="alert alert-danger">You must add a feed url.</div>');
+      if (!bucket_slug.trim())
+        $('.add-crons-message').html('<div class="alert alert-danger">You must add a bucket slug.</div>');
+      if (!title.trim())
+        $('.add-crons-message').html('<div class="alert alert-danger">You must add a cron title.</div>');
       var id = $(this).data('id');
       // Test if existing
       if (!id) {
@@ -94,29 +103,37 @@ $(function() {
         });
       }
     });
-    $.ajax({
-      url: '/add-crons',
-      method: 'post',
-      contentType: 'application/json',
-      data: JSON.stringify(crons),
-      success: function(data) {
-        _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
-        _this.find('.submit-feed-url').text('Submit');
-        $('.add-crons-message').html('<div class="alert alert-success">Success!  Crons added!</div>');
-      },
-      error: function(data) {
-        var message;
-        if (data.responseJSON.error === 'permission') {
-          message = 'Permission issue';
+    if (!$('.feed-row').length)
+      errors = true;
+    if(errors) {
+      _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
+      _this.find('.submit-feed-url').text('Save Crons');
+    }
+    if (!errors) {
+      $.ajax({
+        url: '/add-crons',
+        method: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify(crons),
+        success: function(data) {
+          _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
+          _this.find('.submit-feed-url').text('Save Crons');
+          $('.add-crons-message').html('<div class="alert alert-success">Success!  Crons added!</div>');
+        },
+        error: function(data) {
+          var message;
+          if (data.responseJSON.error === 'permission') {
+            message = 'Permission issue';
+          }
+          if (data.responseJSON.error === 'feed_url') {
+            message = 'Feed URL issue';
+          }
+          _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
+          _this.find('.submit-feed-url').text('Add Crons');
+          $('.add-crons-message').html('<div class="alert alert-danger">There was an error with this request. Error type: ' + message + '</div>');
         }
-        if (data.responseJSON.error === 'feed_url') {
-          message = 'Feed URL issue';
-        }
-        _this.find('.feed-url, .submit-feed-url').removeClass('disabled');
-        _this.find('.submit-feed-url').text('Submit');
-        $('.add-crons-message').html('<div class="alert alert-danger">There was an error with this request. Error type: ' + message + '</div>');
-      }
-    });
+      });
+    }
     return false;
   });
   (function ($) {
