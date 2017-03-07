@@ -10,7 +10,7 @@ Add your feed URL, Cosmic JS Bucket slug and import your articles immediately.  
 
 If you find that you are only getting partial articles, you may need to go into [your Medium account settings](https://medium.com/me/settings) and make sure RSS Feed is set to "Full".
 
-If you choose the cron job option, the cron job will look for new posts every hour.
+If you add a cron job, the cron job will look for new posts every hour or whatever environment variable you set for CRON_INTERVAL.
 ```
 git clone https://github.com/cosmicjs/medium-backup
 cd medium-backup
