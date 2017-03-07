@@ -1,4 +1,5 @@
 # Medium Backup
+![Alt text](https://cosmicjs.com/uploads/5a03a090-006a-11e7-9a49-6975a5effa38-medium-backup.png "Medium Backup")
 ##Demo
 [View Demo](http://medium-backup.cosmicapp.co)
 
@@ -9,8 +10,6 @@ Automatically backup your Medium articles to Cosmic JS.  Includes a manually imp
 If you find that you are only getting partial articles, you may need to go into [your Medium account settings](https://medium.com/me/settings) and make sure RSS Feed is set to "Full".
 
 If you choose the cron job option, the cron job will look for new posts every hour.
-
-![Alt text](https://cosmicjs.com/uploads/5a03a090-006a-11e7-9a49-6975a5effa38-medium-backup.png "Medium Backup")
 
 ##Get started
 ```
