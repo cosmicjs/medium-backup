@@ -18,6 +18,7 @@ npm install
 COSMIC_BUCKET=your-bucket-slug npm start
 ```
 Go to [http://localhost:3000](http://localhost:3000).
+###Run in development
 ```
 npm run development
 ```
