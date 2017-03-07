@@ -3,7 +3,7 @@ Automatically backup your Medium articles to Cosmic JS.  Includes a manually imp
 
 [Read this help article from Medium](https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles) to find out which URL structure to use. It can be https://medium.com/feed/@yourusername or if you have a custom domain https://customdomain.com/feed.
 
-If you find that you are only getting partial articles, you may need to go into your Medium account settings and make sure RSS Feed is set to "Full".
+If you find that you are only getting partial articles, you may need to go into [your Medium account settings](https://medium.com/me/settings) and make sure RSS Feed is set to "Full".
 
 If you choose the cron job option, the cron job will look for new posts every hour.
 
