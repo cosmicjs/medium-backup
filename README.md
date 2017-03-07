@@ -1,7 +1,7 @@
 # Medium Backup
 Automatically backup your Medium articles to Cosmic JS.  Includes a manually import or run a cron job to automatically import to any Cosmic JS Bucket.
 
-This app imports your Medium posts to Cosmic JS. Simply add the feed URL of the Medium Blog you would like to import and it will import the 10 latest posts (Medium only allows access to the 10 latest posts in the feed). This can be a personal account, a publication or a custom domain. Read [this help article from Medium](https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles) to find out which URL structure to use. It can be https://medium.com/feed/@yourusername or if you have a custom domain https://customdomain.com/feed.
+Read [this help article from Medium](https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles) to find out which URL structure to use. It can be https://medium.com/feed/@yourusername or if you have a custom domain https://customdomain.com/feed.
 
 If you find that you are only getting partial articles, you may need to go into your Medium account settings and make sure RSS Feed is set to "Full".
 
