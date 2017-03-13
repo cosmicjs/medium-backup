@@ -6,7 +6,7 @@
 Manually or automatically backup your Medium articles to any Cosmic JS Bucket.
 
 ##Get started
-Add your feed URL, Cosmic JS Bucket slug and import your articles immediately.  [Read this help article from Medium](https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles) to find out which URL structure to use. It can be https://medium.com/feed/@yourusername or if you have a custom domain https://customdomain.com/feed.
+Add your feed URL, Cosmic JS Bucket slug and import your articles immediately.  [Read this help article from Medium](https://help.medium.com/hc/en-us/articles/214874118-RSS-Feeds-of-publications-and-profiles) to find out which URL structure to use. It can be `https://medium.com/feed/@yourusername` or if you have a custom domain `https://customdomain.com/feed`.
 
 If you find that you are only getting partial articles, you may need to go into [your Medium account settings](https://medium.com/me/settings) and make sure RSS Feed is set to "Full".
 
