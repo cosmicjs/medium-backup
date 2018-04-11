@@ -3,7 +3,7 @@ module.exports = function(app, config, async) {
   app.post('/import-posts', function(req, res) {
     var Cosmic = require('cosmicjs')
     var request = require('request')
-    var slug = require('slug')
+    var slugify = require('slug')
     var parseString = require('xml2js').parseString
     var feed_url = req.body.feed_url
     var bucket_slug = req.body.bucket_slug
@@ -14,6 +14,7 @@ module.exports = function(app, config, async) {
         write_key: process.env.COSMIC_WRITE_KEY || ''
       }
     }
+    console.log(feed_url)
     request(feed_url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         parseString(body, function (err, result) {
@@ -39,14 +40,15 @@ module.exports = function(app, config, async) {
             if (post['link'])
               medium_link = post['link'][0]
             // Test if object available
-            Cosmic.getObject(cosmic_config, { slug: slug(title) }, function(err, response) {
+            var slug = slugify(title).toLowerCase();
+            Cosmic.getObject(cosmic_config, { slug: slug }, function(err, response) {
               if (response && response.object) {
                 // already added
                 return callback()
               } else {
                 var params = {
                   title: title,
-                  slug: slug(title),
+                  slug: slug,
                   content: content,
                   type_slug: 'posts',
                   write_key: config.bucket.write_key,
