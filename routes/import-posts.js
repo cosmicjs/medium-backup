@@ -54,21 +54,25 @@ module.exports = function(app, config, async) {
                   write_key: config.bucket.write_key,
                   metafields: [
                     {
+                      type: 'text',
                       key: 'published_at',
                       title: 'Published At',
                       value: published_at
                     },
                     {
+                      type: 'text',
                       key: 'modified_at',
                       title: 'Modified At',
                       value: modified_at
                     },
                     {
+                      type: 'text',
                       key: 'created_by',
                       title: 'Created By',
                       value: created_by
                     },
                     {
+                      type: 'text',
                       key: 'medium_link',
                       title: 'Medium Link',
                       value: medium_link
@@ -81,6 +85,7 @@ module.exports = function(app, config, async) {
                     tags += category + ', '
                   })
                   params.metafields.push({
+                    type: 'text',
                     key: 'tags',
                     title: 'Tags',
                     value: tags
